@@ -29,10 +29,10 @@ dotnet_sort_system_directives_first = true
 file_header_template = unset
 
 # this. and Me. preferences
-dotnet_style_qualification_for_event = true:warning
-dotnet_style_qualification_for_field = true:warning
-dotnet_style_qualification_for_method = true:warning
-dotnet_style_qualification_for_property = true:warning
+dotnet_style_qualification_for_event = false:warning
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_property = false:warning
 
 # Language keywords vs BCL types preferences
 dotnet_style_predefined_type_for_locals_parameters_members = true:warning
@@ -473,3 +473,15 @@ dotnet_diagnostic.CA2246.severity = warning
 
 # SA1200: Using directives should be placed correctly
 dotnet_diagnostic.SA1200.severity = none
+
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SX1309: Field names should begin with underscore
+dotnet_diagnostic.SX1309.severity = warning
+
+# SX1101: DoNotPrefixLocalMembersWithThis
+dotnet_diagnostic.SX1101.severity = warning
