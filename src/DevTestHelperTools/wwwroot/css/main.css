@@ -1,4 +1,6 @@
-﻿html {
+﻿@import url('error-ui.css');
+
+html {
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
     font-size: 18px;
