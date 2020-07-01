@@ -1,8 +1,4 @@
-﻿// <copyright file="SelectMenu.cs" company="Eugene Klimeshuk (Molnix888)">
-// Copyright (c) Eugene Klimeshuk (Molnix888). All rights reserved.
-// </copyright>
-
-using Microsoft.AspNetCore.Components.Web;
+﻿using Microsoft.AspNetCore.Components.Web;
 
 namespace DevTestHelperTools.Elements
 {
@@ -11,22 +7,22 @@ namespace DevTestHelperTools.Elements
     /// </summary>
     public class SelectMenu
     {
-        private bool isOpened = false;
+        private bool _isOpened = false;
 
         /// <summary>
         /// Gets select menu arrow direction.
         /// </summary>
-        public string SelectMenuIconClass => this.isOpened ? "up" : "down";
+        public string SelectMenuIconClass => _isOpened ? "up" : "down";
 
         /// <summary>
         /// Toggles select menu arrow direction.
         /// </summary>
-        public void ToggleArrow() => this.isOpened = !this.isOpened;
+        public void ToggleArrow() => _isOpened = !_isOpened;
 
         /// <summary>
         /// Toggles select menu arrow direction down.
         /// </summary>
-        public void ToggleArrowClosed() => this.isOpened = false;
+        public void ToggleArrowClosed() => _isOpened = false;
 
         /// <summary>
         /// Toggles select menu arrow direction on keys input.
@@ -34,9 +30,9 @@ namespace DevTestHelperTools.Elements
         /// <param name="e">Keyboard event argument.</param>
         public void ToggleArrowOnKeys(KeyboardEventArgs e)
         {
-            if ((this.isOpened && (e?.Key == "Escape" || e?.Key == "Enter")) || (!this.isOpened && e?.Key == " "))
+            if ((_isOpened && (e?.Key == "Escape" || e?.Key == "Enter")) || (!_isOpened && e?.Key == " "))
             {
-                this.ToggleArrow();
+                ToggleArrow();
             }
         }
     }

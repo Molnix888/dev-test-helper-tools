@@ -1,8 +1,4 @@
-﻿// <copyright file="HashPage.razor.cs" company="Eugene Klimeshuk (Molnix888)">
-// Copyright (c) Eugene Klimeshuk (Molnix888). All rights reserved.
-// </copyright>
-
-using System.Globalization;
+﻿using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using DevTestHelperTools.Elements;
@@ -17,12 +13,12 @@ namespace DevTestHelperTools.Pages
     {
         private readonly string[] _hashTypes =
         {
-            "MD5",
-            "RIPEMD160",
             "SHA1",
             "SHA256",
             "SHA384",
             "SHA512",
+            "MD5",
+            "RIPEMD160",
         };
 
         /// <summary>

@@ -1,8 +1,4 @@
-﻿// <copyright file="NavMenu.razor.cs" company="Eugene Klimeshuk (Molnix888)">
-// Copyright (c) Eugene Klimeshuk (Molnix888). All rights reserved.
-// </copyright>
-
-namespace DevTestHelperTools.Shared
+﻿namespace DevTestHelperTools.Shared
 {
     public partial class NavMenu
     {

@@ -1,8 +1,4 @@
-﻿// <copyright file="Base64Page.razor.cs" company="Eugene Klimeshuk (Molnix888)">
-// Copyright (c) Eugene Klimeshuk (Molnix888). All rights reserved.
-// </copyright>
-
-using System;
+﻿using System;
 using System.Text;
 using DevTestHelperTools.Models;
 

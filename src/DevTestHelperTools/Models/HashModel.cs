@@ -1,8 +1,4 @@
-﻿// <copyright file="HashModel.cs" company="Eugene Klimeshuk (Molnix888)">
-// Copyright (c) Eugene Klimeshuk (Molnix888). All rights reserved.
-// </copyright>
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DevTestHelperTools.Models
 {
