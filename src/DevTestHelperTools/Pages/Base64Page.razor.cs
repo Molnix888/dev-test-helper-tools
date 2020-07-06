@@ -1,6 +1,5 @@
-﻿using System;
-using System.Text;
 using DevTestHelperTools.Models;
+using DevTestHelperTools.Services;
 
 namespace DevTestHelperTools.Pages
 {
@@ -17,16 +16,11 @@ namespace DevTestHelperTools.Pages
         /// <summary>
         /// Encodes input string to Base64 format.
         /// </summary>
-        public void Encode() => Base64.EncodedText = Convert.ToBase64String(Encoding.UTF8.GetBytes(Base64.DecodedText ?? string.Empty));
+        public void Encode() => Base64.EncodedText = Base64Service.EncodeString(Base64.DecodedText);
 
         /// <summary>
         /// Decodes input string from Base64 format.
         /// </summary>
-        public void Decode() => Base64.DecodedText = Convert.TryFromBase64String(
-                Base64.EncodedText,
-                new byte[((Base64.EncodedText.Length * 3) + 3) / 4],
-                out _)
-                                    ? Encoding.UTF8.GetString(Convert.FromBase64String(Base64.EncodedText ?? string.Empty))
-                                    : "The provided input not in Base64 format.";
+        public void Decode() => Base64.DecodedText = Base64Service.DecodeString(Base64.EncodedText);
     }
 }
