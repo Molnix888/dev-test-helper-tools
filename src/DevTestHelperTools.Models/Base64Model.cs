@@ -1,4 +1,6 @@
-﻿namespace DevTestHelperTools.Models
+using System.ComponentModel.DataAnnotations;
+
+namespace DevTestHelperTools.Models
 {
     /// <summary>
     /// Model for Base64 encoding/decoding.
@@ -6,13 +8,9 @@
     public class Base64Model
     {
         /// <summary>
-        /// Gets or sets Base64 encoded text.
+        /// Gets or sets input string for encoding/decoding.
         /// </summary>
-        public string EncodedText { get; set; }
-
-        /// <summary>
-        /// Gets or sets decoded text.
-        /// </summary>
-        public string DecodedText { get; set; }
+        [Required]
+        public string InputString { get; set; }
     }
 }

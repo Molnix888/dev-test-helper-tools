@@ -8,6 +8,8 @@ namespace DevTestHelperTools.Pages
     /// </summary>
     public partial class Base64Page
     {
+        private string _result;
+
         /// <summary>
         /// Gets or sets Base64 model values.
         /// </summary>
@@ -16,11 +18,11 @@ namespace DevTestHelperTools.Pages
         /// <summary>
         /// Encodes input string to Base64 format.
         /// </summary>
-        public void Encode() => Base64.EncodedText = Base64Service.EncodeString(Base64.DecodedText);
+        public void Encode() => _result = Base64Service.EncodeString(Base64.InputString);
 
         /// <summary>
         /// Decodes input string from Base64 format.
         /// </summary>
-        public void Decode() => Base64.DecodedText = Base64Service.DecodeString(Base64.EncodedText);
+        public void Decode() => _result = Base64Service.DecodeString(Base64.InputString);
     }
 }

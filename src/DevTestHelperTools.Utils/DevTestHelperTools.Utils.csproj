@@ -4,8 +4,4 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DevTestHelperTools.Utils\DevTestHelperTools.Utils.csproj" />
-  </ItemGroup>
-
 </Project>

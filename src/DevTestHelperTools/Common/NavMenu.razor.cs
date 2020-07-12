@@ -1,4 +1,4 @@
-﻿namespace DevTestHelperTools.Shared
+namespace DevTestHelperTools.Common
 {
     public partial class NavMenu
     {

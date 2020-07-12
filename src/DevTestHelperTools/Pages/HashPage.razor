@@ -1,5 +1,6 @@
 @page "/hash"
 
+@using DevTestHelperTools.Services
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
@@ -10,7 +11,7 @@
         <InputSelect id="hashType" required @bind-Value="Hash.Algorithm" @onclick="SelectMenu.ToggleArrow" @onfocusout="SelectMenu.ToggleArrowClosed" @onkeydown="SelectMenu.ToggleArrowOnKeys" @onkeyup="SelectMenu.ToggleArrowOnKeys">
             <option value="">Select algorythm</option>
 
-            @foreach (var hashType in _hashTypes)
+            @foreach (var hashType in HashService.HashTypes)
             {
                 <option value="@hashType">@hashType</option>
             }
@@ -29,13 +30,8 @@
 
     <div class="text-data">
         <p>
-            <label for="source">Entered value:</label>
-            <div id="source" class="text-block">@Source</div>
-        </p>
-
-        <p>
             <label for="result">Hash:</label>
-            <div id="result" class="text-block">@Result</div>
+            <div id="result" class="text-block">@_result</div>
         </p>
     </div>
 </EditForm>
