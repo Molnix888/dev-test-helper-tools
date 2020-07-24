@@ -11,8 +11,8 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
 
-    <ProjectReference Include="..\DevTestHelperTools.Services\DevTestHelperTools.Services.csproj" />
-    <ProjectReference Include="..\DevTestHelperTools.Utils\DevTestHelperTools.Utils.csproj" />
+    <ProjectReference Include="..\..\DevTestHelperTools.Services\DevTestHelperTools.Services.csproj" />
+    <ProjectReference Include="..\..\DevTestHelperTools.Utils\DevTestHelperTools.Utils.csproj" />
   </ItemGroup>
 
 </Project>

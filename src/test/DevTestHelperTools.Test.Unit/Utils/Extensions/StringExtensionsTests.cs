@@ -20,15 +20,13 @@ namespace DevTestHelperTools.Test.Unit.Utils.Extensions
         [TestCaseSource(nameof(GetResolveInputData))]
         public void ResolveInputStringSuccess(string input, string expected) => input.ResolveInput().Should().Be(expected);
 
-        private static IEnumerable<TestCaseData> GetResolveInputData()
+        private static IEnumerable<object[]> GetResolveInputData()
         {
-            string nullString = null;
-            var emptyString = string.Empty;
-            var stringValue = "test";
+            var testValue = "test";
 
-            yield return new TestCaseData(nullString, emptyString);
-            yield return new TestCaseData(emptyString, emptyString);
-            yield return new TestCaseData(stringValue, stringValue);
+            yield return new object[] { null, string.Empty };
+            yield return new object[] { string.Empty, string.Empty };
+            yield return new object[] { testValue, testValue };
         }
     }
 }
