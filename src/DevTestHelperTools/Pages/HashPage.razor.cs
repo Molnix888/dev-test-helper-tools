@@ -1,6 +1,6 @@
 using DevTestHelperTools.Elements;
 using DevTestHelperTools.Models;
-using DevTestHelperTools.Services;
+using DevTestHelperTools.Services.Abstraction;
 
 namespace DevTestHelperTools.Pages
 {
@@ -9,12 +9,20 @@ namespace DevTestHelperTools.Pages
     /// </summary>
     public partial class HashPage
     {
+        private readonly HashModel _hash;
+        private readonly IHashService _hashService;
         private string _result;
 
         /// <summary>
-        /// Gets or sets hash model values.
+        /// Initializes a new instance of the <see cref="HashPage"/> class.
         /// </summary>
-        public HashModel Hash { get; set; } = new HashModel();
+        /// <param name="hash">Hash model.</param>
+        /// <param name="hashService">Hash service.</param>
+        public HashPage(HashModel hash, IHashService hashService)
+        {
+            _hash = hash;
+            _hashService = hashService;
+        }
 
         /// <summary>
         /// Gets or sets select menu parameters.
@@ -24,6 +32,6 @@ namespace DevTestHelperTools.Pages
         /// <summary>
         /// Computes hash for specified input and sets the result value.
         /// </summary>
-        public void ComputeHash() => _result = HashService.ComputeHash(Hash.Algorithm, Hash.InputString);
+        public void ComputeHash() => _result = _hashService.ComputeHash(_hash.Algorithm, _hash.InputString);
     }
 }

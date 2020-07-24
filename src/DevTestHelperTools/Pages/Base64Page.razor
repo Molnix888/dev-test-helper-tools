@@ -3,10 +3,10 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
-<EditForm Model="Base64">
+<EditForm Model="_base64">
     <div class="textarea-container">
         <label for="decoded">Decoded value</label>
-        <InputTextArea id="decoded" placeholder="Enter your text here..." @bind-Value="Base64.InputString" />
+        <InputTextArea id="decoded" placeholder="Enter your text here..." @bind-Value="_base64.InputString" />
     </div>
 
     <div class="centered-buttons-group">
