@@ -27,7 +27,7 @@ namespace DevTestHelperTools.Services
 
             return Convert.TryFromBase64String(input, new byte[input.Length], out _)
                 ? Encoding.UTF8.GetString(Convert.FromBase64String(input))
-                : "The input not in Base64 format.";
+                : null;
         }
     }
 }
