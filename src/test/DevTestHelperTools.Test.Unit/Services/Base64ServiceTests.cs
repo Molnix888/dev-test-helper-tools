@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using DevTestHelperTools.Services.Abstraction;
+using DevTestHelperTools.Services.DI;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
 namespace DevTestHelperTools.Test.Unit.Services
@@ -16,8 +18,10 @@ namespace DevTestHelperTools.Test.Unit.Services
         /// <summary>
         /// Initializes a new instance of the <see cref="Base64ServiceTests"/> class.
         /// </summary>
-        /// <param name="base64Service">Base64 service.</param>
-        public Base64ServiceTests(IBase64Service base64Service) => _base64Service = base64Service;
+        public Base64ServiceTests() => _base64Service = new ServiceCollection()
+            .AddBase64Service()
+            .BuildServiceProvider()
+            .GetService<IBase64Service>();
 
         /// <summary>
         /// Tests EncodeString method.

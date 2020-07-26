@@ -1,6 +1,8 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using DevTestHelperTools.Models.DI;
+using DevTestHelperTools.Services.DI;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +23,9 @@ namespace DevTestHelperTools
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            _ = builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            _ = builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) })
+                                .AddModelsServices()
+                                .AddServices();
 
             await builder.Build().RunAsync().ConfigureAwait(false);
         }

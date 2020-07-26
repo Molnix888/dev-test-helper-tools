@@ -3,14 +3,14 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
-<EditForm Model="@_hash" OnValidSubmit="ComputeHash">
+<EditForm Model="@Hash" OnValidSubmit="ComputeHash">
     <DataAnnotationsValidator />
 
     <div class="select-container">
-        <InputSelect id="hashType" required @bind-Value="_hash.Algorithm" @onclick="SelectMenu.ToggleArrow" @onfocusout="SelectMenu.ToggleArrowClosed" @onkeydown="SelectMenu.ToggleArrowOnKeys" @onkeyup="SelectMenu.ToggleArrowOnKeys">
+        <InputSelect id="hashType" required @bind-Value="Hash.Algorithm" @onclick="SelectMenu.ToggleArrow" @onfocusout="SelectMenu.ToggleArrowClosed" @onkeydown="SelectMenu.ToggleArrowOnKeys" @onkeyup="SelectMenu.ToggleArrowOnKeys">
             <option value="">Select algorythm</option>
 
-            @foreach (var hashType in _hashService.GetHashTypes())
+            @foreach (var hashType in HashService.GetHashTypes())
             {
                 <option value="@hashType.Value">@hashType.Key</option>
             }
@@ -20,7 +20,7 @@
     </div>
 
     <div class="textarea-container">
-        <InputTextArea id="input" placeholder="Enter your text here..." @bind-Value="_hash.InputString" />
+        <InputTextArea id="input" placeholder="Enter your text here..." @bind-Value="Hash.InputString" />
     </div>
 
     <div>

@@ -22,10 +22,12 @@ namespace DevTestHelperTools.Test.Unit.Utils.Extensions
 
         private static IEnumerable<object[]> GetResolveInputData()
         {
+            var whitespace = " ";
             var testValue = "test";
 
             yield return new object[] { null, string.Empty };
             yield return new object[] { string.Empty, string.Empty };
+            yield return new object[] { whitespace, whitespace };
             yield return new object[] { testValue, testValue };
         }
     }
