@@ -22,16 +22,15 @@ namespace DevTestHelperTools.Services.Implementation
                 { "SHA-384", "SHA384" },
                 { "SHA-512", "SHA512" },
                 { md5, md5 },
-                { "RIPEMD-160", "RIPEMD160" }, // DevSkim: ignore DS126858
             };
         }
 
         /// <inheritdoc/>
         public string ComputeHash(string algorithmName, string input)
         {
-            using var algorithm = HashAlgorithm.Create(algorithmName);
+            using var algorithm = HashAlgorithm.Create(algorithmName.ResolveInput());
 
-            return GetHash(algorithm, input);
+            return algorithm is null ? string.Empty : GetHash(algorithm, input);
         }
 
         private static string GetHash(HashAlgorithm algorithm, string input)
