@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevTestHelperTools.Utils", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{49F07B50-6DC2-407A-B986-72F4CDBBE9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTestHelperTools.Test.Unit", "test\DevTestHelperTools.Test.Unit\DevTestHelperTools.Test.Unit.csproj", "{73B1495B-0EDE-4490-9F75-16F1BAF41BDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevTestHelperTools.Test.Unit", "test\DevTestHelperTools.Test.Unit\DevTestHelperTools.Test.Unit.csproj", "{73B1495B-0EDE-4490-9F75-16F1BAF41BDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTestHelperTools.Components", "DevTestHelperTools.Components\DevTestHelperTools.Components.csproj", "{7FF9E53A-825C-491F-8871-DC3F7AC295B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{73B1495B-0EDE-4490-9F75-16F1BAF41BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73B1495B-0EDE-4490-9F75-16F1BAF41BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73B1495B-0EDE-4490-9F75-16F1BAF41BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FF9E53A-825C-491F-8871-DC3F7AC295B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF9E53A-825C-491F-8871-DC3F7AC295B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF9E53A-825C-491F-8871-DC3F7AC295B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF9E53A-825C-491F-8871-DC3F7AC295B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

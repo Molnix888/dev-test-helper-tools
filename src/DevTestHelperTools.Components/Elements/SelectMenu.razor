@@ -1,0 +1,10 @@
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="select-container">
+    <InputSelect id="@Id" @bind-Value="@Option" @attributes="@Attributes" @onclick="@ToggleArrow" @onfocusout="@ToggleArrowDown" @onkeydown="@ToggleArrowOnKeys" @onkeyup="@ToggleArrowOnKeys">
+        @ChildContent
+    </InputSelect>
+
+    <i class="fas fa-chevron-@ArrowStateClass"></i>
+</div>

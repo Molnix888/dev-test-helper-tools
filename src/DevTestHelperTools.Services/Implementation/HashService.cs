@@ -11,7 +11,7 @@ namespace DevTestHelperTools.Services.Implementation
     public class HashService : IHashService
     {
         /// <inheritdoc/>
-        public IDictionary<string, string> GetHashTypes()
+        public IReadOnlyDictionary<string, string> GetHashTypes()
         {
             var md5 = "MD5"; // DevSkim: ignore DS126858
 

@@ -1,4 +1,3 @@
-using DevTestHelperTools.Elements;
 using DevTestHelperTools.Models;
 using DevTestHelperTools.Services.Abstraction;
 using Microsoft.AspNetCore.Components;
@@ -17,11 +16,6 @@ namespace DevTestHelperTools.Pages
 
         [Inject]
         private IHashService HashService { get; set; }
-
-        /// <summary>
-        /// Gets or sets select menu parameters.
-        /// </summary>
-        public SelectMenu SelectMenu { get; set; } = new SelectMenu();
 
         /// <summary>
         /// Computes hash for specified input and sets the result value.

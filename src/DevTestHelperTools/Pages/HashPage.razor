@@ -1,26 +1,24 @@
 @page "/hash"
 
+@using DevTestHelperTools.Components.Elements
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
-<EditForm Model="@Hash" OnValidSubmit="ComputeHash">
+<EditForm Model=@Hash OnValidSubmit=@ComputeHash>
     <DataAnnotationsValidator />
+    <ValidationMessage For=@(() => Hash.Algorithm) />
 
-    <div class="select-container">
-        <InputSelect id="hashType" required @bind-Value="Hash.Algorithm" @onclick="SelectMenu.ToggleArrow" @onfocusout="SelectMenu.ToggleArrowClosed" @onkeydown="SelectMenu.ToggleArrowOnKeys" @onkeyup="SelectMenu.ToggleArrowOnKeys">
-            <option value="">Select algorythm</option>
+    <SelectMenu Id="hashType" @bind-Option="@Hash.Algorithm" required="">
+        <option value="">Select algorithm</option>
 
-            @foreach (var hashType in HashService.GetHashTypes())
-            {
-                <option value="@hashType.Value">@hashType.Key</option>
-            }
-        </InputSelect>
-
-        <i class="fas fa-chevron-@SelectMenu.SelectMenuIconClass"></i>
-    </div>
+        @foreach (var hashType in HashService.GetHashTypes())
+        {
+            <option value="@hashType.Value">@hashType.Key</option>
+        }
+    </SelectMenu>
 
     <div class="textarea-container">
-        <InputTextArea id="input" placeholder="Enter your text here..." @bind-Value="Hash.InputString" />
+        <InputTextArea id="input" placeholder="Enter your text here..." @bind-Value="@Hash.InputString" />
     </div>
 
     <div>

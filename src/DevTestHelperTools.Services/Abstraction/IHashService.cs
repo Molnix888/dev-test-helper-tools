@@ -11,7 +11,7 @@ namespace DevTestHelperTools.Services.Abstraction
         /// Gets the dictionary of hash types.
         /// </summary>
         /// <returns>Key-value pair of hash types.</returns>
-        IDictionary<string, string> GetHashTypes();
+        IReadOnlyDictionary<string, string> GetHashTypes();
 
         /// <summary>
         /// Computes hash for a provided input via selected algorithm.
