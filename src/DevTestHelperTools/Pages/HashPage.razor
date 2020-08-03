@@ -4,27 +4,24 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
-<EditForm Model=@Hash OnValidSubmit=@ComputeHash>
+<EditForm Model="@Hash" OnValidSubmit="@ComputeHash">
     <DataAnnotationsValidator />
-    <ValidationMessage For=@(() => Hash.Algorithm) />
-
-    <SelectMenu Id="hashType" @bind-Option="@Hash.Algorithm" required="">
-        <option value="">Select algorithm</option>
-
-        @foreach (var hashType in HashService.GetHashTypes())
-        {
-            <option value="@hashType.Value">@hashType.Key</option>
-        }
-    </SelectMenu>
-
+    <div class="select-container">
+        <SelectMenu Id="hashType" @bind-OptionValue="@Hash.Algorithm" required="">
+            <option value="">Select algorithm</option>
+            @foreach (var hashType in HashService.GetHashTypes())
+            {
+                <option value="@hashType.Value">@hashType.Key</option>
+            }
+        </SelectMenu>
+        <ValidationMessage For="@(() => Hash.Algorithm)" />
+    </div>
     <div class="textarea-container">
         <InputTextArea id="input" placeholder="Enter your text here..." @bind-Value="@Hash.InputString" />
     </div>
-
     <div>
         <button type="submit" id="generate">GENERATE</button>
     </div>
-
     <div class="text-data">
         <p>
             <label for="result">Hash:</label>

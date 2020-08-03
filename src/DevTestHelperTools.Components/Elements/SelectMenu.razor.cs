@@ -7,7 +7,8 @@ namespace DevTestHelperTools.Components.Elements
     /// <summary>
     /// Base for building SelectMenu element.
     /// </summary>
-    public partial class SelectMenu
+    /// <typeparam name="T">Option value type.</typeparam>
+    public partial class SelectMenu<T>
     {
         private bool _isOpened = false;
 
@@ -27,13 +28,13 @@ namespace DevTestHelperTools.Components.Elements
         /// Gets or sets value attribute to SelectMenu.
         /// </summary>
         [Parameter]
-        public string Option { get; set; }
+        public T OptionValue { get; set; }
 
         /// <summary>
         /// Gets or sets notification about Option parameter being changed.
         /// </summary>
         [Parameter]
-        public EventCallback<string> OptionChanged { get; set; }
+        public EventCallback<T> OptionValueChanged { get; set; }
 
         /// <summary>
         /// Gets or sets the child content to be rendering inside the SelectMenu.

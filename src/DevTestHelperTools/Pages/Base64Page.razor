@@ -3,22 +3,19 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Web
 
-<EditForm Model=@Base64>
+<EditForm Model="@Base64">
     <div class="textarea-container">
         <label for="decoded">Decoded value</label>
         <InputTextArea id="decoded" placeholder="Enter your text here..." @bind-Value="@Base64.InputString" />
     </div>
-
     <div class="centered-buttons-group">
-        <button type="submit" id="encode" @onclick=@Encode>
+        <button type="submit" id="encode" @onclick="@Encode">
             ENCODE <i class="fas fa-arrow-down"></i>
         </button>
-
-        <button type="submit" id="decode" @onclick=@Decode>
+        <button type="submit" id="decode" @onclick="@Decode">
             DECODE <i class="fas fa-arrow-up"></i>
         </button>
     </div>
-
     <div class="textarea-container">
         <label for="encoded">Encoded value</label>
         <InputTextArea id="encoded" placeholder="Enter your text here..." @bind-Value="@_result" />
