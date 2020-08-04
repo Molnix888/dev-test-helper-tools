@@ -34,7 +34,7 @@ namespace DevTestHelperTools.Test.Unit.Services
 
             using (new AssertionScope())
             {
-                _ = hashTypes.Count.Should().Be(5);
+                _ = ((IReadOnlyDictionary<string, string>)hashTypes).Count.Should().Be(5);
 
                 foreach (var type in hashTypes)
                 {

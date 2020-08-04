@@ -7,7 +7,7 @@
 <EditForm Model="@Hash" OnValidSubmit="@ComputeHash">
     <DataAnnotationsValidator />
     <div class="select-container">
-        <SelectMenu Id="hashType" @bind-OptionValue="@Hash.Algorithm" required="">
+        <SelectMenu id="hashType" required="" @bind-Value="@Hash.Algorithm">
             <option value="">Select algorithm</option>
             @foreach (var hashType in HashService.GetHashTypes())
             {
