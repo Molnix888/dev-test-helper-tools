@@ -8,7 +8,7 @@ namespace DevTestHelperTools.Components.Elements
     /// <inheritdoc/>
     public class SelectMenu<TValue> : InputSelect<TValue>
     {
-        private bool _isOpened = false;
+        private bool _isOpened;
 
         /// <summary>
         /// Gets select menu arrow direction.
