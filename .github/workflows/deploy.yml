@@ -1,0 +1,34 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Unit Tests
+        run: dotnet test ./src/test/*.Test.Unit/*.csproj --no-restore --verbosity normal
+      - name: Publish
+        run: dotnet publish ./src/**/DevTestHelperTools.csproj -c Release --no-restore
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@master
+        with:
+          project-token: ${{ secrets.CODACY_TOKEN }}
+          coverage-reports: cobertura.xml
+      - name: Deploy to Github Pages
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PUBLISH_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ${{ secrets.PUBLISH_DIR }}
+          force_orphan: true
