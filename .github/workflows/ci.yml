@@ -1,11 +1,13 @@
-name: Deploy
+name: CI
 
 on:
   push:
     branches: [master, dev]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,17 +17,27 @@ jobs:
           dotnet-version: '3.1.x'
       - name: Install dependencies
         run: dotnet restore
+      - name: Build
+        run: dotnet build -c Release --no-restore
       - name: Unit Tests
-        run: dotnet test ./src/test/*.Test.Unit/*.csproj --no-restore --verbosity normal
-      - name: Publish
-        run: dotnet publish ./src/**/DevTestHelperTools.csproj -c Release --no-restore
+        run: dotnet test **/test/*.Test.Unit/*.csproj --no-restore --verbosity normal --collect:"XPlat Code Coverage"
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_TOKEN }}
-          coverage-reports: cobertura.xml
+          coverage-reports: **/coverage.cobertura.xml
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - name: Publish
+        run: dotnet publish **/DevTestHelperTools.csproj -c Release
       - name: Deploy to Github Pages
-        if: ${{ github.ref == 'refs/heads/master' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PUBLISH_TOKEN }}
